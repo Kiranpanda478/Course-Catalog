@@ -1,0 +1,44 @@
+.userpro {
+    background: #998983de;
+    width: 80%;
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+.head {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    background-color: #998983de !important;
+    color: white !important;
+}
+
+thead,
+th {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+label {
+    font-size: 14px;
+}
+.btn{
+    padding: 5px;
+    border: 2px solid blue;
+    width: 40%;
+    border-radius: 8%;
+    font-size: 15px;
+    color:blue;
+}
+.unen{
+    border: none;
+    background: red;
+}

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid headercontainer">
+      <a class="navbar-brand head" href="#">Course Catalog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
+        <form class="d-flex searchbar" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search by name, category, or instructor" aria-label="Search">
+          <button class="btn btn-outline-primary btnsrch" type="submit">Search</button>
+        </form>
+      </div>
+<img src ="assets/user.webp" title="User Profile" style="cursor: pointer;height: 70px;" (click) = "user()">
+
+      
+    </div>
+  
+  
+  </nav>
+
+<div class="container">
+    <div style="display: flex;     margin-left: 58px;">
+        <h2 style="color: #121bcb;">Course List</h2>
+        <!-- <select class="form-select sort" aria-label="Default select example"><span>caret</span>
+            <option selected>Sort by  Recommendation</option>
+            <option value="1">Price</option>
+            <option value="2">Rating</option>
+            <option value="3">Category</option>
+          </select> -->
+          <div class="dropdown sort" style="background: #998983de;">
+            <button class="btn btn-secondary dropdown-toggle"  style="background: #998983de;border: none;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort by  Recommendation
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="background :#998983de">
+              <li><a class="dropdown-item" href="/">Price</a></li>
+              <li><a class="dropdown-item" href="/">Rating</a></li>
+              <li><a class="dropdown-item" href="/">Category</a></li>
+            </ul>
+          </div>
+       
+    </div>
+   
+   
+    <diV style="display: flex; " class = "mt-5">
+    <div class="card " style="width: 18rem; margin-left: 50px;" *ngFor = "let item of courselist">
+        <img class="card-img-top" src="assets/angular.svg" alt="Card image cap">
+        <hr>
+        <div class="card-body">
+          <h5 class="card-title cardtitle">{{item.title}}</h5>
+          <p class="card-text">{{item.description}}</p>
+          <div style="display: flex;">
+            <p class="card-text">{{item.instructor}}</p>
+            <p  style="margin-left: 50px;">{{item.rating}}</p>
+          </div>
+          <p class="price"> Course Fee </p>
+          
+        </div>
+      </div>
+    </diV>
+</div>

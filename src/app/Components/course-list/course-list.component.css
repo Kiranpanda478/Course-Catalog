@@ -1,0 +1,37 @@
+.head{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.headercontainer{
+   background:  #998983de;
+}
+.searchbar{
+    width: 50%;
+}
+p{
+    font-size: 14px;
+}
+.cardtitle{
+font-size:16px;
+}
+.sort{
+  
+    background: #998983de;
+    color: black;
+    margin-left: 40px;
+}
+.btnsrch{
+    background: aliceblue;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+.btnsrch:hover{
+    color: blue;
+}
+.price{
+    text-align: center;
+    color: white;
+    background: #121bcb;
+    border-radius: 53%;
+}

@@ -1,0 +1,53 @@
+<div style="display: flex;">
+    <div class = "userpro ">
+        <div class="mt-4 head  ">
+  User Profile
+        </div>
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">username</th>
+                  <th scope="col">Enrolled Courses</th>
+                  <th scope="col">Progress</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let item of users">
+                  <th scope="row">1</th>
+                  <td>{{item.username}}</td>
+                  <td>{{item.courses}}</td>
+                  <td>{{item.progress}}</td>
+                  <td><button class="unen">UnEnroll</button></td>
+                </tr>
+                
+          </table>
+    </div>
+  
+
+
+<div class="container mt-5" >
+
+    <form class="container" style="width: 350px;">
+        <h1 >Add Course</h1>
+         <div class="form-group">
+          <label for="fullname">Enter FUll name</label>
+          <input type="text"  class="form-control" id="fullname" >
+        </div>
+         <div class="form-group">
+          <label for="coursename">Enter Course name</label>
+          <input type="text"   class="form-control" id="coursename" >
+        </div>
+        
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1"   placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        
+        <button type="button" class="btn " >Enroll</button>
+      </form>
+    </div>
+</div>
