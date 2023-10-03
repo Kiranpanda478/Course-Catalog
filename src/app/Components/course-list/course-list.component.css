@@ -1,37 +1,61 @@
-.head{
-    font-size: 20px;
-    margin-top: 20px;
+.head {
+    font-size: 26px;
+    font-weight: 500;
 }
-.headercontainer{
-   background:  #998983de;
+
+.headercontainer {
+    background: #3498db;
 }
-.searchbar{
+
+.searchbar {
     width: 50%;
 }
-p{
+
+p {
     font-size: 14px;
 }
-.cardtitle{
-font-size:16px;
+
+.cardtitle {
+    font-size: 20px;
+    color: red;
 }
-.sort{
-  
-    background: #998983de;
-    color: black;
+
+.cardrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 50px;
+}
+
+.sort {
+
+    background: #3498db;
+    color: #ece3e3;
     margin-left: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 25%;
 }
-.btnsrch{
+
+.btnsrch {
     background: aliceblue;
     font-size: 14px;
     font-weight: 500;
 
 }
-.btnsrch:hover{
+
+.btnsrch:hover {
     color: blue;
 }
-.price{
+
+.price {
     text-align: center;
     color: white;
     background: #121bcb;
     border-radius: 53%;
+}
+
+.rate {
+    margin-left: 50px;
+    background-color: yellow;
+    height: 25px;
 }

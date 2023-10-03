@@ -1,13 +1,14 @@
-<div style="display: flex;">
-    <div class = "userpro ">
-        <div class="mt-4 head  ">
-  User Profile
+<div>
+    <div class="conatiner">
+        <div class="user-profile">
+          <h1>User Profile</h1>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add user with course</button>
         </div>
-        <table class="table table-striped-columns">
+        <table>
             <thead>
                 <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">username</th>
+                  <th scope="col">Username</th>
+                  <!-- <th scope="col">Email</th> -->
                   <th scope="col">Enrolled Courses</th>
                   <th scope="col">Progress</th>
                   <th>Action</th>
@@ -15,11 +16,12 @@
               </thead>
               <tbody>
                 <tr *ngFor = "let item of users">
-                  <th scope="row">1</th>
-                  <td>{{item.username}}</td>
-                  <td>{{item.courses}}</td>
-                  <td>{{item.progress}}</td>
-                  <td><button class="unen">UnEnroll</button></td>
+                  <th scope="row">{{item.name}}</th>
+                  <!-- <td>{{item.email}}</td> -->
+                  <td>{{item.c_name}}</td>
+                  <td>{{item.progress}} %</td>
+                  <td><button class="unen"  >{{item.status == '0' ? 'Unenroll' : 'Enroll'}}</button></td>
+               
                 </tr>
                 
           </table>
@@ -27,27 +29,60 @@
   
 
 
-<div class="container mt-5" >
 
-    <form class="container" style="width: 350px;">
-        <h1 >Add Course</h1>
-         <div class="form-group">
-          <label for="fullname">Enter FUll name</label>
-          <input type="text"  class="form-control" id="fullname" >
-        </div>
-         <div class="form-group">
-          <label for="coursename">Enter Course name</label>
-          <input type="text"   class="form-control" id="coursename" >
-        </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1"   placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        
-        
-        <button type="button" class="btn " >Enroll</button>
-      </form>
+<div>
+
+  <form >
+       <div class="form-group">
+        <!-- <label for="fullname">Enter FUll name</label>
+        <input type="text"  class="form-control" id="fullname" > -->
+        <select class="form-select sort" aria-label="Default select example"  (change) = "getusername($event)"><span>caret</span>
+          <option selected disabled>Enrolled Users</option>
+          <option [value]="items.id" *ngFor = "let items of userdata">{{items.name}}</option>
+          
+        </select>
+      </div>
+       <div class="form-group">
+        <!-- <label for="coursename">Enter Course name</label>
+        <input type="text"   class="form-control" id="coursename" > -->
+
+        <select class="form-select sort" aria-label="Default select example"  
+        (change) = "getcoursename($event)"><span>caret</span>
+          <option selected disabled>Courses</option>
+          <option [value]="item.id" *ngFor = "let item of courselist">{{item.name}}</option>
+          
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="exampleInputEmail1">Progress</label>
+        <input type="text" class="form-control" #pro id="progrss" 
+       placeholder="Enter Progress">
+        <!-- <small id="progrss" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+<!--       
+      
+      <button type="button" class="btn " >Enroll</button> -->
+    </form>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click) = "onClickSubmit(pro)">Save changes</button>
+      </div>
     </div>
+  </div>
 </div>
