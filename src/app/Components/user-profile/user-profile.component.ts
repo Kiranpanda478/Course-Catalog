@@ -14,52 +14,17 @@ export class UserProfileComponent implements OnInit {
     this.courseget()
   }
 
-  // users = [{
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // {
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // {
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // {
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // {
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // {
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // {
-  //   username:"hiii",
-  //   courses:"fsdd,sfdfds",
-  //   progress:"50"
-  // },
-  // ]
+
   users: any
   userdata: any
   courselist: any
   u_id: any
   c_id: any;
   progress: any;
-  fname:string = "";
-  mobile:string = ''
-  email:string = '';
-  address:string = '';
+  fname: string = "";
+  mobile: string = ''
+  email: string = '';
+  address: string = '';
   getusers() {
     this.http.usercourselist().subscribe(res => {
       this.users = res;
@@ -74,8 +39,8 @@ export class UserProfileComponent implements OnInit {
   }
   onClickSubmit(event: any) {
     this.progress = event.value
-    console.log(this.u_id,this.c_id,this.progress)
-    this.http.addusercourse(this.u_id,this.c_id,this.progress).subscribe(res =>{
+    console.log(this.u_id, this.c_id, this.progress)
+    this.http.addusercourse(this.u_id, this.c_id, this.progress).subscribe(res => {
       console.log(res)
       this.getusers();
     })
@@ -94,24 +59,24 @@ export class UserProfileComponent implements OnInit {
       console.log(this.userdata, "lllllllllllll")
     })
   }
-    
- submit(){
-  this.http.addnewuser(this.fname ,this.mobile,this.email,this.address).subscribe(res => {
-    console.log(res,"hjhjhjh")
-    this.fname ='';
-    this.email = '';
-    this.mobile ='';
-    this.address = '';
- })
- this.listeduser();
 
-}
-enroll(event: any,value:any){
-console.log(event,value)
-  if(value==0){ value=1; }else{ value=0; }
+  submit() {
+    this.http.addnewuser(this.fname, this.mobile, this.email, this.address).subscribe(res => {
+      console.log(res, "hjhjhjh")
+      this.fname = '';
+      this.email = '';
+      this.mobile = '';
+      this.address = '';
+    })
+    this.listeduser();
 
-  this.http.statusupdate(event,value).subscribe(res =>{
-    this.getusers();
-  })
-}
+  }
+  enroll(event: any, value: any) {
+    console.log(event, value)
+    if (value == 0) { value = 1; } else { value = 0; }
+
+    this.http.statusupdate(event, value).subscribe(res => {
+      this.getusers();
+    })
+  }
 }

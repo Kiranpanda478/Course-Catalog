@@ -51,7 +51,10 @@ p {
     text-align: center;
     color: white;
     background: #121bcb;
-    border-radius: 53%;
+    border-radius: 13%;
+    width: 80px;
+    margin-left: 75px;
+
 }
 
 .rate {

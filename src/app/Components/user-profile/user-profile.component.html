@@ -1,33 +1,33 @@
 <div>
-    <div class="conatiner">
-        <div class="user-profile">
-          <h1>User Profile</h1>
-          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add New User</button>
-          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add user with course</button>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                  <th scope="col">Username</th>
-                  <!-- <th scope="col">Email</th> -->
-                  <th scope="col">Enrolled Courses</th>
-                  <th scope="col">Progress</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor = "let item of users">
-                  <th scope="row">{{item.name}}</th>
-                  <!-- <td>{{item.email}}</td> -->
-                  <td>{{item.c_name}}</td>
-                  <td>{{item.progress}} %</td>
-                  <td><button class="unen"   (click)="enroll(item.id,item.status)">Unenroll </button></td>
-               
-                </tr>
-                
-          </table>
+  <div class="conatiner">
+    <div class="user-profile">
+      <h1>User Profile</h1>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add New User</button>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add user with course</button>
     </div>
-  
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <!-- <th scope="col">Email</th> -->
+          <th scope="col">Enrolled Courses</th>
+          <th scope="col">Progress</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <th scope="row">{{item.name}}</th>
+          <!-- <td>{{item.email}}</td> -->
+          <td>{{item.c_name}}</td>
+          <td>{{item.progress}} %</td>
+          <td><button class="unen" (click)="enroll(item.id,item.status)">Unenroll </button></td>
+
+        </tr>
+
+    </table>
+  </div>
+
 
 
 
@@ -43,46 +43,47 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
-<div>
 
-  <form >
-       <div class="form-group">
-        <!-- <label for="fullname">Enter FUll name</label>
+        <div>
+
+          <form>
+            <div class="form-group">
+              <!-- <label for="fullname">Enter FUll name</label>
         <input type="text"  class="form-control" id="fullname" > -->
-        <select class="form-select sort" aria-label="Default select example"  (change) = "getusername($event)"><span>caret</span>
-          <option selected disabled>Enrolled Users</option>
-          <option [value]="items.id" *ngFor = "let items of userdata">{{items.name}}</option>
-          
-        </select>
-      </div>
-       <div class="form-group">
-        <!-- <label for="coursename">Enter Course name</label>
+              <select class="form-select sort" aria-label="Default select example"
+                (change)="getusername($event)"><span>caret</span>
+                <option selected disabled>Enrolled Users</option>
+                <option [value]="items.id" *ngFor="let items of userdata">{{items.name}}</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <!-- <label for="coursename">Enter Course name</label>
         <input type="text"   class="form-control" id="coursename" > -->
 
-        <select class="form-select sort" aria-label="Default select example"  
-        (change) = "getcoursename($event)"><span>caret</span>
-          <option selected disabled>Courses</option>
-          <option [value]="item.id" *ngFor = "let item of courselist">{{item.name}}</option>
-          
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="exampleInputEmail1">Progress</label>
-        <input type="text" class="form-control" #pro id="progrss" 
-       placeholder="Enter Progress">
-        <!-- <small id="progrss" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-      </div>
-<!--       
+              <select class="form-select sort" aria-label="Default select example"
+                (change)="getcoursename($event)"><span>caret</span>
+                <option selected disabled>Courses</option>
+                <option [value]="item.id" *ngFor="let item of courselist">{{item.name}}</option>
+
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Progress</label>
+              <input type="text" class="form-control" #pro id="progrss" placeholder="Enter Progress">
+              <!-- <small id="progrss" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <!--       
       
       <button type="button" class="btn " >Enroll</button> -->
-    </form>
-  </div>
+          </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal"  (click) = "onClickSubmit(pro)">Save changes</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onClickSubmit(pro)">Save
+          changes</button>
       </div>
     </div>
   </div>
@@ -98,40 +99,44 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        
-<div>
 
-  <form class="container" style="width: 350px;">
-    <h1 >Add User</h1>
-     <div class="form-group">
-      <label for="exampleInputPassword1">Enter first name</label>
-      <input type="text" [(ngModel)] = "fname" [ngModelOptions]="{standalone: true}"  class="form-control" id="exampleInputPassword1" >
-    </div>
-     <div class="form-group">
-      <label for="exampleInputPassword1">Enter Mobile number</label>
-      <input type="text"  [(ngModel)] = "mobile"  [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputPassword1" >
-    </div>
-    
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="email"  [(ngModel)] = "email" [ngModelOptions]="{standalone: true}"  aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
+        <div>
 
-    <div class="form-group">
-      <label for="exampleInputEmail1"> Address</label>
-      <input type="email" class="form-control" id="address"  [(ngModel)] = "address" [ngModelOptions]="{standalone: true}"  aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    
-    
-    
-  </form>
-  </div>
+          <form class="container" style="width: 350px;">
+            <h1>Add User</h1>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Enter first name</label>
+              <input type="text" [(ngModel)]="fname" [ngModelOptions]="{standalone: true}" class="form-control"
+                id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Enter Mobile number</label>
+              <input type="text" [(ngModel)]="mobile" [ngModelOptions]="{standalone: true}" class="form-control"
+                id="exampleInputPassword1">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="email"
+                [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1"> Address</label>
+              <input type="email" class="form-control" id="address" [(ngModel)]="address"
+                [ngModelOptions]="{standalone: true}" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+
+
+          </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" (click) = "submit()" data-bs-dismiss="modal" >Save changes</button>
+        <button type="submit" class="btn btn-primary" (click)="submit()" data-bs-dismiss="modal">Save changes</button>
       </div>
     </div>
   </div>
