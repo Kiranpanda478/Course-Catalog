@@ -2,6 +2,7 @@
     <div class="conatiner">
         <div class="user-profile">
           <h1>User Profile</h1>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add New User</button>
           <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add user with course</button>
         </div>
         <table>
@@ -81,7 +82,56 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" (click) = "onClickSubmit(pro)">Save changes</button>
+        <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal"  (click) = "onClickSubmit(pro)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--  add user Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+<div>
+
+  <form class="container" style="width: 350px;">
+    <h1 >Add User</h1>
+     <div class="form-group">
+      <label for="exampleInputPassword1">Enter first name</label>
+      <input type="text" [(ngModel)] = "fname" [ngModelOptions]="{standalone: true}"  class="form-control" id="exampleInputPassword1" >
+    </div>
+     <div class="form-group">
+      <label for="exampleInputPassword1">Enter Mobile number</label>
+      <input type="text"  [(ngModel)] = "mobile"  [ngModelOptions]="{standalone: true}" class="form-control" id="exampleInputPassword1" >
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="email"  [(ngModel)] = "email" [ngModelOptions]="{standalone: true}"  aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1"> Address</label>
+      <input type="email" class="form-control" id="address"  [(ngModel)] = "address" [ngModelOptions]="{standalone: true}"  aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    
+    
+    
+  </form>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click) = "submit()" data-bs-dismiss="modal" >Save changes</button>
       </div>
     </div>
   </div>

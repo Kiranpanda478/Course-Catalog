@@ -55,7 +55,11 @@ export class UserProfileComponent implements OnInit {
   courselist: any
   u_id: any
   c_id: any;
-  progress: any
+  progress: any;
+  fname:string = "";
+  mobile:string = ''
+  email:string = '';
+  address:string = '';
   getusers() {
     this.http.usercourselist().subscribe(res => {
       this.users = res;
@@ -73,6 +77,7 @@ export class UserProfileComponent implements OnInit {
     console.log(this.u_id,this.c_id,this.progress)
     this.http.addusercourse(this.u_id,this.c_id,this.progress).subscribe(res =>{
       console.log(res)
+      this.getusers();
     })
   }
   courseget() {
@@ -89,10 +94,16 @@ export class UserProfileComponent implements OnInit {
       console.log(this.userdata, "lllllllllllll")
     })
   }
+    
+ submit(){
+  this.http.addnewuser(this.fname ,this.mobile,this.email,this.address).subscribe(res => {
+    console.log(res,"hjhjhjh")
+    this.fname ='';
+    this.email = '';
+    this.mobile ='';
+    this.address = '';
+ })
+ this.listeduser();
 
-  // statusupdate(){
-  //   this.http.statusupdate().subscribe(res =>{
-  //     this.userdata = res;
-  // }
-
+}
 }

@@ -36,5 +36,9 @@ export class HttpserviceService {
     return this.http.post(this.baseurl + "user_course_status",{id,status})
 
   }
+ 
+  addnewuser(name:any,mobile:any,email:any,address:any){
+    return this.http.post(this.baseurl + "user_create",{name,mobile,email,address})
+  }
 
 }
