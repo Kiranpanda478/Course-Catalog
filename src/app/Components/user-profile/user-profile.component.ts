@@ -106,4 +106,12 @@ export class UserProfileComponent implements OnInit {
  this.listeduser();
 
 }
+enroll(event: any,value:any){
+console.log(event,value)
+  if(value==0){ value=1; }else{ value=0; }
+
+  this.http.statusupdate(event,value).subscribe(res =>{
+    this.getusers();
+  })
+}
 }

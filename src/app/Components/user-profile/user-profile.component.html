@@ -21,7 +21,7 @@
                   <!-- <td>{{item.email}}</td> -->
                   <td>{{item.c_name}}</td>
                   <td>{{item.progress}} %</td>
-                  <td><button class="unen"  >{{item.status == '0' ? 'Unenroll' : 'Enroll'}}</button></td>
+                  <td><button class="unen"   (click)="enroll(item.id,item.status)">Unenroll </button></td>
                
                 </tr>
                 
