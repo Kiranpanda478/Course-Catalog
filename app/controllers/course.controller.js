@@ -111,7 +111,7 @@ exports.user_to_course = (req, res) => {
     // Validate request
     if (!req.body.user_id) {
         return res.status(400).send({
-            message: "Description can not be empty"
+            message: "User Id can not be empty"
         });
     }
     if (!req.body.course_id) {
@@ -158,15 +158,33 @@ exports.user_course_status = (req, res) => {
    
     var status = req.body.status;
     var id = req.body.id;
-
-    connection.query('update user_course set status = ? where id = ?',
-    [status,id],
+//    connection.query('update user_course set status = ? where id = ?',
+    connection.query('delete from user_course where id = ?',
+    [id],
     function (error, results, fields) {
         if (error) throw error;
         return res.send({
             data: results.affectedRows,
-            message: 'User to course update'
+            message: 'User to course delete success'
         });
     });
 
+};
+
+exports.user_create = (req, res) => {
+    // Validate request
+    if (!req.body.name) {
+        return res.status(400).send({
+            message: "Name can not be empty"
+        });
+    }
+    var params = req.body;
+    connection.query("INSERT INTO users SET ? ", params,
+        function (error, results, fields) {
+            if (error) throw error;
+            return res.send({
+                data: true,
+                message: 'New Users has been created successfully.'
+            });
+        });
 };

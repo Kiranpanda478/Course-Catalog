@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 // parse application/json
 app.use(bodyParser.json())
-
+app.use(express.static('course-catalog'))
 // define a simple route
 app.get('/', (req, res) => {
     res.json({"message": "Welcome to app"});

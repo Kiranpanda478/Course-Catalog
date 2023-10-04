@@ -26,4 +26,5 @@ module.exports = (app) => {
 
     app.get('/user_course', course.user_course);
     app.post('/user_course_status', course.user_course_status);
+    app.post('/user_create', course.user_create);
 }
