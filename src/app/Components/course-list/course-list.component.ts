@@ -19,18 +19,18 @@ export class CourseListComponent implements OnInit {
     this.courseget();
   }
   courseget() {
-    this.http.courselist().subscribe(res => {
+    this.http.Courselist().subscribe(res => {
       this.courselist = res;
       this.courselist = this.courselist.data;
     })
   }
   search(event: any) {
-    console.log(event.target.value, "value")
+   
     this.srch = true;
     this.list = false;
-    console.log(event.target.value.length, "length")
+ 
 
-    this.http.search(event.target.value).subscribe(res => {
+    this.http.Search(event.target.value).subscribe(res => {
       this.srchdata = res
       this.srchdata = this.srchdata.data
       if (event.target.value > 0) {
@@ -41,14 +41,14 @@ export class CourseListComponent implements OnInit {
     })
   }
   sort(event: any) {
-    console.log(event.target.value)
-    this.http.sort(event.target.value).subscribe(res => {
+   
+    this.http.Sort(event.target.value).subscribe(res => {
       this.courselist = res;
       this.courselist = this.courselist.data;
     })
   }
   user() {
-    console.log("ddddddddddddddd")
+   
     this.router.navigate(['/user'])
   }
 

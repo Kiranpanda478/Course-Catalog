@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
   email: string = '';
   address: string = '';
   getusers() {
-    this.http.usercourselist().subscribe(res => {
+    this.http.Usercourselist().subscribe(res => {
       this.users = res;
       this.users = this.users.data;
     })
@@ -39,30 +39,30 @@ export class UserProfileComponent implements OnInit {
   }
   onClickSubmit(event: any) {
     this.progress = event.value
-    console.log(this.u_id, this.c_id, this.progress)
-    this.http.addusercourse(this.u_id, this.c_id, this.progress).subscribe(res => {
-      console.log(res)
+
+    this.http.Addusercourse(this.u_id, this.c_id, this.progress).subscribe(res => {
+     
       this.getusers();
     })
   }
   courseget() {
-    this.http.courselist().subscribe(res => {
+    this.http.Courselist().subscribe(res => {
       this.courselist = res;
       this.courselist = this.courselist.data;
     })
   }
 
   listeduser() {
-    this.http.listeduser().subscribe(res => {
+    this.http.Listeduser().subscribe(res => {
       this.userdata = res;
       this.userdata = this.userdata.data;
-      console.log(this.userdata, "lllllllllllll")
+    
     })
   }
 
   submit() {
-    this.http.addnewuser(this.fname, this.mobile, this.email, this.address).subscribe(res => {
-      console.log(res, "hjhjhjh")
+    this.http.Addnewuser(this.fname, this.mobile, this.email, this.address).subscribe(res => {
+    
       this.fname = '';
       this.email = '';
       this.mobile = '';
@@ -72,10 +72,10 @@ export class UserProfileComponent implements OnInit {
 
   }
   enroll(event: any, value: any) {
-    console.log(event, value)
+  
     if (value == 0) { value = 1; } else { value = 0; }
 
-    this.http.statusupdate(event, value).subscribe(res => {
+    this.http.Statusupdate(event, value).subscribe(res => {
       this.getusers();
     })
   }

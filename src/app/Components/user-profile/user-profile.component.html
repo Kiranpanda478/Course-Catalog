@@ -39,7 +39,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
+        <h5 class="modal-title" id="exampleModalLabel">User enroll with Course</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -82,8 +82,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onClickSubmit(pro)">Save
-          changes</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="onClickSubmit(pro)">
+          Enroll</button>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -103,7 +103,7 @@
         <div>
 
           <form class="container" style="width: 350px;">
-            <h1>Add User</h1>
+       
             <div class="form-group">
               <label for="exampleInputPassword1">Enter first name</label>
               <input type="text" [(ngModel)]="fname" [ngModelOptions]="{standalone: true}" class="form-control"
@@ -136,7 +136,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary" (click)="submit()" data-bs-dismiss="modal">Save changes</button>
+        <button type="submit" class="btn btn-primary" (click)="submit()" data-bs-dismiss="modal">Add User</button>
       </div>
     </div>
   </div>
